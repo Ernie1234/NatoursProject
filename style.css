@@ -1,0 +1,167 @@
+
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    line-height: 1.7;
+    /* font-size: 1.6rem; */
+    font-family: 'lato', sans-serif;
+    color: #777;
+    font-weight: 400;
+    padding: 3rem;
+
+    box-sizing: border-box;
+}
+.header{
+    background-image: linear-gradient(to right bottom, rgba(8, 51, 70, 0.7),rgba(51, 155, 224, 0.7)),url(img/hero.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 95vh;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+}
+.header__logo-box{
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+.header__logo{
+    height: 6.5rem;
+}
+.header__logo:hover{
+    animation-name: blinkingLogo;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+}
+
+@keyframes blinkingLogo{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.main-text-center{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.heading-primary{
+    margin-bottom: 7rem;
+    color: ivory;
+    text-transform: uppercase;
+}
+.heading-primary--main{
+    display: block;
+    font-size: 3.5rem;
+    font-weight: bolder;
+    letter-spacing: 3.5rem;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out
+}
+.heading-primary--sub{
+    display: block;
+    letter-spacing: 1.7rem;
+    font-weight: 200;
+    font-size: 2rem;
+    
+    animation-name: moveInRight;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out; 
+}
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translate(-10rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+@keyframes moveInRight{
+    0%{
+        opacity: 0;
+        transform: translate(10rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 250ms;
+    position: relative;
+    font-size: 1.6rem;
+    box-shadow: none;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 5, 0.2);
+}
+.btn:hover{
+    transform: translateY(-.3rem);
+    box-shadow: 0 .7rem 1rem rgba(0, 0, 0, 0.5);
+}
+.btn:active{
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+.btn--white{
+    color: rgb(112, 112, 112);
+    background-color: #fff;
+    border-radius: 5rem; 
+}
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+.btn--white::after{
+    background-color: #fff;
+}
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.7);
+    opacity: 0;
+}
+@keyframes moveInBottom{
+    0%{
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.btn--animated{
+    animation-name: moveInBottom;
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+    animation-delay: .75s;
+    animation-fill-mode: backwards;
+}
